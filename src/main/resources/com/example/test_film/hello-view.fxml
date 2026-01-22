@@ -1,16 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.test_film.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test_film.HelloController">
+   <children>
+      <ListView fx:id="filmListView" onEditStart="#initialize" onMouseClicked="#getSelectedFilm" prefHeight="200.0" prefWidth="200.0" />
+      <VBox prefHeight="400.0" prefWidth="258.0">
+         <children>
+            <HBox prefHeight="75.0" prefWidth="175.0">
+               <children>
+                  <Label prefHeight="79.0" prefWidth="100.0" text="Název:">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="nazevTextField">
+                     <HBox.margin>
+                        <Insets top="25.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="60.0" prefWidth="258.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="100.0" text="Režisér:">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="reziserTextField" />
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="100.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="100.0" text="Rok vydání:">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="rokVydaniTextField" />
+               </children>
+            </HBox>
+            <Button fx:id="pridatButton" mnemonicParsing="false" onAction="#onpridatButtonClick" text="Přidat">
+               <VBox.margin>
+                  <Insets left="200.0" top="30.0" />
+               </VBox.margin>
+            </Button>
+            <TextField fx:id="hledaniNazvuTextField" prefHeight="25.0" prefWidth="169.0" promptText="Vyhledání podle názvu">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="50.0" />
+               </VBox.margin>
+            </TextField>
+            <Label fx:id="nenalezenLabel" prefHeight="17.0" prefWidth="238.0">
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="najitButton" mnemonicParsing="false" onAction="#onnajitButtonClick" text="Najít">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="200.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</HBox>
